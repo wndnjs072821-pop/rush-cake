@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#fff0f3">
+  <meta name="description" content="시간 안에 크림을 짜서 케이크를 꾸미는 게임. 점선을 따라 그리고 과일을 올려 보세요!">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="러쉬 케이크">
+  <meta property="og:description" content="시간 안에 크림을 짜서 케이크를 꾸미는 게임. 점선을 따라 그리고 과일을 올려 보세요!">
+  <title>러쉬 케이크</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍰%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+
+    <!-- 시작 화면 -->
+    <section id="screen-start" class="screen active">
+      <h1>러쉬 케이크</h1>
+      <p class="sub">시간 안에 크림을 짜서<br>케이크를 꾸며요!</p>
+      <div class="logo" aria-hidden="true">🍰</div>
+      <div class="field">
+        <span class="label">크림 색</span>
+        <div id="color-picker" class="chips">
+          <button class="chip selected" data-color="white" aria-label="하양"><i style="background:#fffdf8"></i>하양</button>
+          <button class="chip" data-color="pink" aria-label="분홍"><i style="background:#ffb0c8"></i>분홍</button>
+          <button class="chip" data-color="choco" aria-label="초코"><i style="background:#7a4a3a"></i>초코</button>
+        </div>
+      </div>
+      <p class="best">최고 기록 <b id="best-score">0</b></p>
+      <button id="btn-start" class="btn primary">시작</button>
+      <button class="btn small btn-mute"></button>
+    </section>
+
+    <!-- 게임 화면 -->
+    <section id="screen-game" class="screen">
+      <header class="hud">
+        <div class="hud-item">⏱ <b id="hud-time">20</b></div>
+        <div class="hud-item">점수 <b id="hud-score">0</b></div>
+        <div class="hud-item hearts" id="hud-lives">♥♥♥</div>
+      </header>
+      <div class="stage-wrap">
+        <canvas id="stage"></canvas>
+        <div id="result" class="result-card hidden">
+          <div id="result-title"></div>
+          <div id="result-detail"></div>
+          <button id="btn-next" class="btn primary small">다음 케이크</button>
+        </div>
+      </div>
+      <p id="hint">점선을 따라 그려요</p>
+      <div class="row">
+        <button id="btn-home" class="btn small">처음으로</button>
+        <button class="btn small btn-mute"></button>
+      </div>
+    </section>
+
+    <!-- 종료 화면 -->
+    <section id="screen-end" class="screen">
+      <h1>게임 끝!</h1>
+      <p class="result">이번 점수 <b id="end-score">0</b></p>
+      <p class="best">최고 기록 <b id="end-best">0</b></p>
+      <p id="end-new" class="new-record hidden">🎉 새 기록!</p>
+      <button id="btn-retry" class="btn primary">다시 하기</button>
+    </section>
+
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/wave.js"></script>
+  <script src="js/draw.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/sound.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
